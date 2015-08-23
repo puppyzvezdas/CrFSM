@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xs:schema xmlns:ser="http://schemas.microsoft.com/2003/10/Serialization/" xmlns:tns="http://schemas.datacontract.org/2004/07/Common.model" elementFormDefault="qualified" targetNamespace="http://schemas.datacontract.org/2004/07/Common.model" xmlns:xs="http://www.w3.org/2001/XMLSchema">
+  <xs:import schemaLocation="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd3" namespace="http://schemas.datacontract.org/2004/07/Common" />
+  <xs:import schemaLocation="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd5" namespace="http://schemas.microsoft.com/2003/10/Serialization/Arrays" />
+  <xs:import schemaLocation="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd1" namespace="http://schemas.microsoft.com/2003/10/Serialization/" />
+  <xs:complexType name="IdentifiedObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" name="GlobalId" nillable="true" type="xs:string" />
+      <xs:element minOccurs="0" name="Name" nillable="true" type="xs:string" />
+      <xs:element xmlns:q1="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="Type" type="q1:EntityType" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="IdentifiedObject" nillable="true" type="tns:IdentifiedObject" />
+  <xs:complexType name="Worker">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IdentifiedObject">
+        <xs:sequence>
+          <xs:element xmlns:q2="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Assignments" nillable="true" type="q2:ArrayOfstring" />
+          <xs:element minOccurs="0" name="IsAvaliable" type="xs:boolean" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Worker" nillable="true" type="tns:Worker" />
+  <xs:complexType name="Crew">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Worker">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="CrewName" nillable="true" type="xs:string" />
+          <xs:element xmlns:q3="http://schemas.microsoft.com/2003/10/Serialization/Arrays" minOccurs="0" name="Members" nillable="true" type="q3:ArrayOfstring" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Crew" nillable="true" type="tns:Crew" />
+  <xs:complexType name="CrewMember">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:Worker">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Crew" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Email" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FamilyName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="FirstName" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element minOccurs="0" name="Phone" nillable="true" type="xs:string" />
+          <xs:element xmlns:q4="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="Skills" nillable="true" type="q4:ArrayOfSkills" />
+          <xs:element xmlns:q5="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="UserType" type="q5:UserType" />
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="CrewMember" nillable="true" type="tns:CrewMember" />
+  <xs:complexType name="Assignment">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IdentifiedObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="AssignedTime" type="xs:dateTime" />
+          <xs:element minOccurs="0" name="Duration" type="ser:duration" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="Assignment" nillable="true" type="tns:Assignment" />
+  <xs:complexType name="User">
+    <xs:complexContent mixed="false">
+      <xs:extension base="tns:IdentifiedObject">
+        <xs:sequence>
+          <xs:element minOccurs="0" name="Password" nillable="true" type="xs:string" />
+          <xs:element xmlns:q6="http://schemas.datacontract.org/2004/07/Common" minOccurs="0" name="UserType" type="q6:UserType" />
+          <xs:element minOccurs="0" name="Username" nillable="true" type="xs:string" />
+        </xs:sequence>
+      </xs:extension>
+    </xs:complexContent>
+  </xs:complexType>
+  <xs:element name="User" nillable="true" type="tns:User" />
+  <xs:complexType name="ArrayOfIdentifiedObject">
+    <xs:sequence>
+      <xs:element minOccurs="0" maxOccurs="unbounded" name="IdentifiedObject" nillable="true" type="tns:IdentifiedObject" />
+    </xs:sequence>
+  </xs:complexType>
+  <xs:element name="ArrayOfIdentifiedObject" nillable="true" type="tns:ArrayOfIdentifiedObject" />
+</xs:schema>

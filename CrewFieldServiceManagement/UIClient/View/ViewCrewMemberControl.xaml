@@ -1,0 +1,35 @@
+﻿<UserControl x:Class="UIClient.View.ViewCrewMemberControl"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:view="clr-namespace:UIClient.View"
+             xmlns:viewmodel="clr-namespace:UIClient.ViewModel">
+    <UserControl.DataContext>
+        <viewmodel:ViewModelCrewMember/>
+    </UserControl.DataContext>
+    <Grid>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="50"/>
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <view:ViewCrewMembersDataGrid Grid.Row="0" Grid.Column="0"/>
+
+        <TabControl Grid.Row="0" Grid.Column="1">
+            <TabItem Header="Insert">
+                <view:ViewInsertUpdateCrewMemeber/>
+            </TabItem>
+            <TabItem Header="Update" Selector.Selected="TabItem_Selected">
+                <view:ViewUpdateCrewMember/>
+            </TabItem>
+        </TabControl>
+
+        <Button Content="Remove" Grid.Row="1" Command="{Binding RemoveEntityCommand}"/>
+    </Grid>
+</UserControl>

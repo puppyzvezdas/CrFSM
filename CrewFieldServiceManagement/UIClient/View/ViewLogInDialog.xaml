@@ -1,0 +1,34 @@
+﻿<Window x:Class="UIClient.View.ViewLogInDialog"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:viewmodel="clr-namespace:UIClient.ViewModel"
+        Title="{Binding TITLE_LOGIN, Source={StaticResource ResourceKey=Resources}}" Height="150" Width="300"
+        Background="LightGray"
+        WindowStartupLocation="CenterScreen">
+    <Window.DataContext>
+        <viewmodel:ViewModelLogInDialog/>
+    </Window.DataContext>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition/>
+            <RowDefinition/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Name="lblUsername" Grid.Row="0" Grid.Column="0" Content="{Binding LABEL_USERNAME, Source={StaticResource ResourceKey=Resources}}"/>
+        <TextBox Name="txtUsername" Grid.Row="0" Grid.Column="1" Text="{Binding Username, UpdateSourceTrigger=PropertyChanged}"/>
+
+        <Label Name="lblPassword" Grid.Row="1" Grid.Column="0" Content="{Binding LABEL_PASSWORD, Source={StaticResource ResourceKey=Resources}}"/>
+        <PasswordBox Name="txtPassword" Grid.Row="1" Grid.Column="1"/>
+
+        <Button Name="btnLogin" Grid.Row="2" Grid.Column="0" HorizontalAlignment="Right" Content="{Binding BUTTON_LOGIN, Source={StaticResource ResourceKey=Resources}}"
+                Command="{Binding LogInCommand}" CommandParameter="{Binding ElementName=txtPassword}" IsDefault="True"/>
+        <Button Name="btnCancel" Grid.Row="2" Grid.Column="1" HorizontalAlignment="Left" Content="{Binding BUTTON_CANCEL, Source={StaticResource ResourceKey=Resources}}"
+                Command="{Binding CloseCommand}"/>
+    </Grid>
+</Window>

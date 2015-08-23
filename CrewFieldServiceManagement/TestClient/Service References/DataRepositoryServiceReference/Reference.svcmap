@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ReferenceGroup xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema" ID="d2cbed0b-2874-4868-89d4-ac16d8bda671" xmlns="urn:schemas-microsoft-com:xml-wcfservicemap">
+  <ClientOptions>
+    <GenerateAsynchronousMethods>false</GenerateAsynchronousMethods>
+    <EnableDataBinding>true</EnableDataBinding>
+    <ExcludedTypes />
+    <ImportXmlTypes>false</ImportXmlTypes>
+    <GenerateInternalTypes>false</GenerateInternalTypes>
+    <GenerateMessageContracts>false</GenerateMessageContracts>
+    <NamespaceMappings />
+    <CollectionMappings />
+    <GenerateSerializableTypes>true</GenerateSerializableTypes>
+    <Serializer>Auto</Serializer>
+    <UseSerializerForFaults>true</UseSerializerForFaults>
+    <ReferenceAllAssemblies>true</ReferenceAllAssemblies>
+    <ReferencedAssemblies />
+    <ReferencedDataContractTypes />
+    <ServiceContractMappings />
+  </ClientOptions>
+  <MetadataSources>
+    <MetadataSource Address="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/" Protocol="http" SourceId="1" />
+  </MetadataSources>
+  <Metadata>
+    <MetadataFile FileName="item.disco" MetadataType="Disco" ID="5b9731e5-d6f2-4fab-96ca-124414a8770b" SourceId="1" SourceUrl="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?disco" />
+    <MetadataFile FileName="DataRepositoryService.wsdl" MetadataType="Wsdl" ID="11a8cfd6-c6b0-41dc-97ba-3f83528b11ee" SourceId="1" SourceUrl="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?wsdl" />
+    <MetadataFile FileName="item5.xsd" MetadataType="Schema" ID="950e29cc-1226-43d3-8d41-96ca41c0c5a6" SourceId="1" SourceUrl="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd5" />
+    <MetadataFile FileName="item.xsd" MetadataType="Schema" ID="d86b50c0-ae79-4b5a-bb55-c1453d02f8b5" SourceId="1" SourceUrl="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd2" />
+    <MetadataFile FileName="item1.xsd" MetadataType="Schema" ID="d94a77a6-9e60-4456-8ec7-37d3c2777d6a" SourceId="1" SourceUrl="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd3" />
+    <MetadataFile FileName="item2.xsd" MetadataType="Schema" ID="08d2c410-26bd-4b63-b08f-8333e729b186" SourceId="1" SourceUrl="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd0" />
+    <MetadataFile FileName="item3.xsd" MetadataType="Schema" ID="837fd871-74f2-4ce1-acd1-efcbc0c72e5d" SourceId="1" SourceUrl="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd1" />
+    <MetadataFile FileName="item4.xsd" MetadataType="Schema" ID="3b376978-339e-44c2-8a32-319a28e993e4" SourceId="1" SourceUrl="http://localhost:8732/CrewFieldServiceManagement/DataRepositoryServiceLib/DataRepositoryService/?xsd=xsd4" />
+  </Metadata>
+  <Extensions>
+    <ExtensionFile FileName="configuration91.svcinfo" Name="configuration91.svcinfo" />
+    <ExtensionFile FileName="configuration.svcinfo" Name="configuration.svcinfo" />
+  </Extensions>
+</ReferenceGroup>

@@ -1,0 +1,24 @@
+﻿<DataGrid x:Class="UIClient.View.ViewCrewMembersDataGrid"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+             xmlns:converters="clr-namespace:UIClient.Converters"
+             ItemsSource="{Binding CrewMembers}" 
+             AutoGenerateColumns="False"
+             SelectedItem="{Binding SelectedItem}"
+             AreRowDetailsFrozen="True"
+             IsReadOnly="True">
+    <DataGrid.Resources>
+        <converters:CrewIdToCrewNameConverter x:Key="CrewIdToCrewName"/>
+    </DataGrid.Resources>
+    <DataGrid.Columns>
+        <DataGridTextColumn Header="First name" Binding="{Binding Path=FirstName}"/>
+        <DataGridTextColumn Header="Family name" Binding="{Binding Path=FamilyName}"/>
+        <DataGridTextColumn Header="Email address" Binding="{Binding Path=Email}"/>
+        <DataGridTextColumn Header="Phone" Binding="{Binding Path=Phone}"/>
+        <DataGridTextColumn Header="Username" Binding="{Binding Path=Username}"/>
+        <DataGridTextColumn Header="User type" Binding="{Binding Path=UserType}"/>
+        <DataGridTextColumn Header="Crew" Binding="{Binding Path=Crew, Converter={StaticResource ResourceKey=CrewIdToCrewName}}"/>
+    </DataGrid.Columns>
+</DataGrid>

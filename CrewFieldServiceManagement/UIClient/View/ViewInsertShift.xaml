@@ -1,0 +1,40 @@
+﻿<UserControl x:Class="UIClient.View.ViewInsertShift"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:xceed="clr-namespace:Xceed.Wpf.Toolkit;assembly=Xceed.Wpf.Toolkit"
+             xmlns:viewmodel="clr-namespace:UIClient.ViewModel"
+             >
+    <UserControl.DataContext>
+        <viewmodel:ViewModelInsertShift/>
+    </UserControl.DataContext>
+    <UserControl.Resources>
+        <Style TargetType="FrameworkElement" x:Key="TimePickerStyle">
+            <Setter Property="Margin" Value="5"/>
+        </Style>
+    </UserControl.Resources>
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="0.25*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <Grid.RowDefinitions>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition Height="30"/>
+            <RowDefinition/>
+        </Grid.RowDefinitions>
+
+        <Label Grid.Column="0" Grid.Row="0" Content="Shift name"/>
+        <Label Grid.Column="0" Grid.Row="1" Content="Start time"/>
+        <Label Grid.Column="0" Grid.Row="2" Content="End time"/>
+
+        <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding ShiftName, UpdateSourceTrigger=PropertyChanged}"/>
+        <xceed:TimePicker Grid.Column="1" Grid.Row="1" Value="{Binding StartTime}" Style="{StaticResource ResourceKey=TimePickerStyle}"/>
+        <xceed:TimePicker Grid.Column="1" Grid.Row="2" Value="{Binding EndTime}" Style="{StaticResource ResourceKey=TimePickerStyle}"/>
+
+        <Button Grid.Row="3" Grid.ColumnSpan="2" Content="Add shift" Command="{Binding AddShiftCommand}"/>
+    </Grid>
+</UserControl>

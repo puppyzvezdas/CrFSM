@@ -1,0 +1,93 @@
+﻿<Grid x:Class="UIClient.View.ViewUpdateCrewMember"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:viewmodel="clr-namespace:UIClient.ViewModel">
+    <Grid.DataContext>
+        <viewmodel:ViewModelUpdateCrewMember/>
+    </Grid.DataContext>
+    <Grid.Resources>
+        <Style x:Key="TextBoxStyle" TargetType="TextBox">
+            <Setter Property="Height" Value="25"/>
+        </Style>
+        <Style x:Key="ButtonStyle" TargetType="Button">
+            <Setter Property="Width" Value="100"/>
+            <Setter Property="Height" Value="25"/>
+        </Style>
+
+    </Grid.Resources>
+
+    <Grid.ColumnDefinitions>
+        <ColumnDefinition Width="100"/>
+        <ColumnDefinition/>
+    </Grid.ColumnDefinitions>
+    <Grid.RowDefinitions>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition Height="30"/>
+        <RowDefinition/>
+        <RowDefinition Height="30"/>
+    </Grid.RowDefinitions>
+
+
+    <Label Grid.Column="0" Grid.Row="0" Content="{Binding LABEL_NAME, Source={StaticResource ResourceKey=Resources}}"/>
+    <Label Grid.Column="0" Grid.Row="1" Content="{Binding LABEL_FAMILY_NAME, Source={StaticResource ResourceKey=Resources}}"/>
+    <Label Grid.Column="0" Grid.Row="2" Content="{Binding LABEL_EMAIL, Source={StaticResource ResourceKey=Resources}}"/>
+    <Label Grid.Column="0" Grid.Row="3" Content="{Binding LABEL_PHONE, Source={StaticResource ResourceKey=Resources}}"/>
+    <Label Grid.Column="0" Grid.Row="4" Content="{Binding LABEL_USERNAME, Source={StaticResource ResourceKey=Resources}}"/>
+    <Label Grid.Column="0" Grid.Row="5" Content="{Binding LABEL_PASSWORD, Source={StaticResource ResourceKey=Resources}}"/>
+    <Label Grid.Column="0" Grid.Row="6" Content="{Binding LABEL_USER_TYPE, Source={StaticResource ResourceKey=Resources}}"/>
+    <Label Grid.Column="0" Grid.Row="7" Content="{Binding LABEL_CREW, Source={StaticResource ResourceKey=Resources}}"/>
+    <Label Grid.Column="0" Grid.Row="8" Content="{Binding LABEL_SKILS, Source={StaticResource ResourceKey=Resources}}"/>
+
+    <TextBox Grid.Column="1" Grid.Row="0" Text="{Binding Path=FirstName, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+    <TextBox Grid.Column="1" Grid.Row="1" Text="{Binding Path=FamilyName, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+    <TextBox Grid.Column="1" Grid.Row="2" Text="{Binding Path=Email, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+    <TextBox Grid.Column="1" Grid.Row="3" Text="{Binding Path=Phone, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+    <TextBox Grid.Column="1" Grid.Row="4" Text="{Binding Path=Username, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+    <TextBox Grid.Column="1" Grid.Row="5" Text="{Binding Path=Password, UpdateSourceTrigger=PropertyChanged}" Style="{StaticResource ResourceKey=TextBoxStyle}"/>
+    <ComboBox Grid.Column="1" Grid.Row="6" ItemsSource="{Binding UserTypes}" SelectedItem="{Binding Path=UserType, UpdateSourceTrigger=PropertyChanged}"/>
+    <ComboBox Grid.Column="1" Grid.Row="7" ItemsSource="{Binding Crews}" DisplayMemberPath="CrewName" SelectedItem="{Binding Path=Crew, Mode=TwoWay, UpdateSourceTrigger=PropertyChanged}"/>
+    <Grid Grid.Column="1" Grid.Row="8">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition/>
+            <ColumnDefinition Width="0.4*"/>
+            <ColumnDefinition/>
+        </Grid.ColumnDefinitions>
+
+        <ListView Grid.Column="0" ItemsSource="{Binding AllSkills}" SelectionMode="Multiple" SelectionChanged="ListView_SelectionChanged">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+        <StackPanel Grid.Column="1" Orientation="Vertical" VerticalAlignment="Center">
+            <Button Content="&lt;-" Command="{Binding RemoveSkillCommand}"/>
+            <Button Content="-&gt;" Command="{Binding AddSkillCommand}"/>
+            <Button Content="Add all" Command="{Binding AddAllSkillsCommand}"/>
+            <Button Content="Remove all" Command="{Binding RemoveAllSkillsCommand}"/>
+        </StackPanel>
+
+        <ListView Grid.Column="2" ItemsSource="{Binding MemeberSkills}" SelectionMode="Multiple" SelectionChanged="ListView_SelectionChanged_1">
+            <ListView.View>
+                <GridView>
+                    <GridViewColumn />
+                </GridView>
+            </ListView.View>
+        </ListView>
+
+    </Grid>
+
+    <Button Grid.Row="9" Grid.ColumnSpan="2"
+            Style="{StaticResource ResourceKey=ButtonStyle}"
+            Content="{Binding BUTTON_UPDATE_MEMBER, Source={StaticResource ResourceKey=Resources}}" 
+            Command="{Binding UpdateEntityCommand}"/>
+</Grid>
